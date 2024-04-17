@@ -90,7 +90,6 @@ pipeline {
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
         sh "cd prod && kustomize edit set image ${awsecrRegistry}:${currentBuild.number}"
-        sh "cd .."
         sh "git add ."
         sh "git status"
         sh "git commit -m 'update the image tag'"
